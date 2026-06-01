@@ -58,7 +58,7 @@ class Server:
         data = []
         current = index
 
-        while len(data) < page_size and current < len(dataset) + page_size:
+        while len(data) < page_size:
             if current in dataset:
                 data.append(dataset[current])
             current += 1

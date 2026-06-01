@@ -32,7 +32,7 @@ class Server(SimpleServer):
         prev_page = page - 1 if page > 1 else None
 
         return {
-            "page_size": page_size if data else 0,
+            "page_size": len(data),
             "page": page,
             "data": data,
             "next_page": next_page,
