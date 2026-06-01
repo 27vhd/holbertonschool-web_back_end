@@ -53,17 +53,15 @@ class Server:
             Dict: index, next_index, page_size, and data
         """
         dataset = self.indexed_dataset()
-        assert isinstance(index, int) and 0 <= index < len(dataset)
+        assert index is not None and 0 <= index < len(dataset)
 
         data = []
         current = index
 
-        while len(data) < page_size:
+        while len(data) < page_size and current < len(dataset) + page_size:
             if current in dataset:
                 data.append(dataset[current])
             current += 1
-            if current > max(dataset.keys()):
-                break
 
         next_index = current if current in dataset else None
 
