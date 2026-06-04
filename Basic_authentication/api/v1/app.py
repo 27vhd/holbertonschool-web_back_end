@@ -29,7 +29,11 @@ def before_request():
     """ Filter each request """
     if auth is None:
         return
-    excluded = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    excluded = [
+        '/api/v1/status/',
+        '/api/v1/unauthorized/',
+        '/api/v1/forbidden/'
+    ]    
     if not auth.require_auth(request.path, excluded):
         return
     if auth.authorization_header(request) is None:
