@@ -37,9 +37,11 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_page(self, page: int = 1, page_size: int = 10) 
+    -> List[List]:
         """
-        Return the rows of the dataset that belong to the requested page,
+        Return the rows of the dataset that 
+        belong to the requested page,
         or an empty list if the page is out of range.
         """
         assert isinstance(page, int) and page > 0
