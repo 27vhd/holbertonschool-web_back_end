@@ -23,11 +23,13 @@ class Server:
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """Initialize the server with an empty dataset cache."""
         self.__dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
+        """Load the dataset from the CSV file once, cache it,
+        and return it without the header row.
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -39,8 +41,7 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-        Return the rows of the dataset that 
-        belong to the requested page,
+        Return the rows of the dataset that belong to the requested page,
         or an empty list if the page is out of range.
         """
         assert isinstance(page, int) and page > 0
